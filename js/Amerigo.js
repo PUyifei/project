@@ -15,7 +15,7 @@ let groupRight;
 let mtlLoader;
 let stats;
 let scene, camera, renderer;
-var SHARKObj1, SHARKObj2, SHARKObj3, SHARKObj4;
+var shipObj1, shipObj2, shipObj3, shipObj4;
 let objectArr = [] // 存放場景中中所有 mesh(網格)
 let RightRequestID;
 let LeftRequestID;
@@ -73,7 +73,7 @@ function initCamera() {
 // ==================== 添加軌道控制器 =========================
 function initControl() {
   let orbitControls = new OrbitControls(camera, renderer.domElement);
-  orbitControls.target = new THREE.Vector3(0, 10, 0) 
+  orbitControls.target = new THREE.Vector3(0, 0, 0) 
   orbitControls.autoRotate = false 
   renderScene();
 
@@ -171,16 +171,16 @@ function initObjModel(){
     };
 
     mtlLoader = new MTLLoader();
-    mtlLoader.setPath('../model/SHARK/');
-     // SHARK 1
-    mtlLoader.load('SHARK.mtl', function (materials) {
+    mtlLoader.setPath('../model/Amerigo/');
+     // Amerigo 1
+    mtlLoader.load('Amerigo.mtl', function (materials) {
         materials.preload(); 
         var objLoader = new OBJLoader();
         objLoader.setCrossOrigin('Anonymous'); 
         objLoader.setMaterials(materials);
-        objLoader.setPath('../model/SHARK/');
+        objLoader.setPath('../model/Amerigo/');
         objLoader.load(
-            'SHARK.obj',
+            'Amerigo.obj',
             function (obj) {
                 //遍歷子節點，開啟每個子節點的陰影模式。
                 obj.traverse(function (child) {
@@ -190,14 +190,14 @@ function initObjModel(){
                 });
 
             
-                SHARKObj1 = obj;
+                shipObj1 = obj;
                
                 groupTop.position.set(0, 100, 0);
                 
-                groupTop.scale.set(40, 40, 40);
+                groupTop.scale.set(0.24, 0.24, 0.24);
                 
                 groupTop.rotation.set(0, 0, 0);
-                groupTop.add(SHARKObj1);
+                groupTop.add(shipObj1);
 
                 scene.add(groupTop);
             },
@@ -206,15 +206,15 @@ function initObjModel(){
         );
     });
 
-    // SHARK 2
-    mtlLoader.load('SHARK.mtl', function (materials) {
+    // Amerigo 2
+    mtlLoader.load('Amerigo.mtl', function (materials) {
         materials.preload(); //材質預先載入
         var objLoader = new OBJLoader();
         objLoader.setCrossOrigin('Anonymous'); // 如果檔案來自IE，會有跨域問題 ，用來解決跨域問題
         objLoader.setMaterials(materials);
-        objLoader.setPath('../model/SHARK/');
+        objLoader.setPath('../model/Amerigo/');
         objLoader.load(
-            'SHARK.obj',
+            'Amerigo.obj',
             function (obj) {
                 //遍歷子節點，開啟每個子節點的陰影模式。
                 obj.traverse(function (child) {
@@ -224,13 +224,13 @@ function initObjModel(){
                 });
 
                 //模型縮放
-                SHARKObj2 = obj;
+                shipObj2 = obj;
                
-                //groupRight 添加 SHARKObj2 模型
+                //groupRight 添加 shipObj2 模型
                 groupBottom.position.set(0, -100, 0);
-                groupBottom.scale.set(40, 40, 40);
+                groupBottom.scale.set(0.24, 0.24, 0.24);
                 groupBottom.rotation.set(3, 0, 0);
-                groupBottom.add(SHARKObj2);
+                groupBottom.add(shipObj2);
 
                 scene.add(groupBottom);
             },
@@ -239,15 +239,15 @@ function initObjModel(){
         );
     });
 
-    // SHARK 3
-    mtlLoader.load('SHARK.mtl', function (materials) {
+    // Amerigo 3
+    mtlLoader.load('Amerigo.mtl', function (materials) {
         materials.preload(); //材質預先載入
         var objLoader = new OBJLoader();
         objLoader.setCrossOrigin('Anonymous'); // 如果檔案來自IE，會有跨域問題 ，用來解決跨域問題
         objLoader.setMaterials(materials);
-        objLoader.setPath('../model/SHARK/');
+        objLoader.setPath('../model/Amerigo/');
         objLoader.load(
-            'SHARK.obj',
+            'Amerigo.obj',
             function (obj) {
                 //遍歷子節點，開啟每個子節點的陰影模式。
                 obj.traverse(function (child) {                   
@@ -257,13 +257,13 @@ function initObjModel(){
                 });
 
                 //模型縮放
-                SHARKObj3 = obj;               
+                shipObj3 = obj;               
 
-                //groupLeft 添加 SHARKObj3 模型
+                //groupLeft 添加 shipObj3 模型
                 groupLeft.position.set(0, 0, 100);
-                groupLeft.scale.set(40, 40, 40);
+                groupLeft.scale.set(0.24, 0.24, 0.24);
                 groupLeft.rotation.set(1.5, 0, 0);
-                groupLeft.add(SHARKObj3);
+                groupLeft.add(shipObj3);
 
                 scene.add(groupLeft);
             },
@@ -272,15 +272,15 @@ function initObjModel(){
         );
     });
 
-    // SHARK 4
-    mtlLoader.load('SHARK.mtl', function (materials) {
+    // Amerigo 4
+    mtlLoader.load('Amerigo.mtl', function (materials) {
         materials.preload(); //材質預先載入
         var objLoader = new OBJLoader();
         objLoader.setCrossOrigin('Anonymous'); // 如果檔案來自IE，會有跨域問題 ，用來解決跨域問題
         objLoader.setMaterials(materials);
-        objLoader.setPath('../model/SHARK/');
+        objLoader.setPath('../model/Amerigo/');
         objLoader.load(
-            'SHARK.obj',
+            'Amerigo.obj',
             function (obj) {
                 //遍歷子節點，開啟每個子節點的陰影模式。
                 obj.traverse(function (child) {                   
@@ -290,13 +290,13 @@ function initObjModel(){
                 });
 
                 //模型縮放
-                SHARKObj4 = obj;              
+                shipObj4 = obj;              
 
-                //groupRight 添加 SHARKObj4 模型
+                //groupRight 添加 shipObj4 模型
                 groupRight.position.set(0, 0, -100);
-                groupRight.scale.set(40, 40, 40);
+                groupRight.scale.set(0.24, 0.24, 0.24);
                 groupRight.rotation.set(4.5, 0, 0);
-                groupRight.add(SHARKObj4);
+                groupRight.add(shipObj4);
 
                 scene.add(groupRight);
             },
