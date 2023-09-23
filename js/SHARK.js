@@ -192,7 +192,7 @@ function initObjModel(){
             
                 SHARKObj1 = obj;
                
-                groupTop.position.set(0, 200, 0);
+                groupTop.position.set(0, 100, 0);
                 
                 groupTop.scale.set(40, 40, 40);
                 
@@ -227,7 +227,7 @@ function initObjModel(){
                 SHARKObj2 = obj;
                
                 //groupRight 添加 SHARKObj2 模型
-                groupBottom.position.set(0, -200, 0);
+                groupBottom.position.set(0, -100, 0);
                 groupBottom.scale.set(40, 40, 40);
                 groupBottom.rotation.set(3, 0, 0);
                 groupBottom.add(SHARKObj2);
@@ -260,7 +260,7 @@ function initObjModel(){
                 SHARKObj3 = obj;               
 
                 //groupLeft 添加 SHARKObj3 模型
-                groupLeft.position.set(0, 0, 200);
+                groupLeft.position.set(0, 0, 100);
                 groupLeft.scale.set(40, 40, 40);
                 groupLeft.rotation.set(1.5, 0, 0);
                 groupLeft.add(SHARKObj3);
@@ -293,7 +293,7 @@ function initObjModel(){
                 SHARKObj4 = obj;              
 
                 //groupRight 添加 SHARKObj4 模型
-                groupRight.position.set(0, 0, -200);
+                groupRight.position.set(0, 0, -100);
                 groupRight.scale.set(40, 40, 40);
                 groupRight.rotation.set(4.5, 0, 0);
                 groupRight.add(SHARKObj4);
@@ -315,9 +315,9 @@ function initAnimate(){
 
 // ===================== 等比縮放 ==========================
 function onWindowResize() {
-    camera.aspect = width / height;
+    camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize( width, height);
+    renderer.setSize(window.innerWidth, window.innerHeight);
 }
 // ========================================================
 
